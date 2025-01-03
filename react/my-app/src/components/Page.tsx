@@ -1,6 +1,6 @@
 import { Box, Center, StackDivider, VStack } from "@chakra-ui/react";
-import Messages from "./Messages";
 import TextArea from "./TextArea";
+import MessageList from "./MessageList";
 
 export default function Page() {
   const messages = [
@@ -8,7 +8,6 @@ export default function Page() {
     { id: 2, text: "How are you?", userName: "bot" },
     { id: 3, text: "I'm good, thanks!", userName: "user" },
   ];
-
   return (
     <>
       <Center>
@@ -21,13 +20,7 @@ export default function Page() {
           height="100%"
         >
           <Box h="38em">
-            {messages.map((message) => (
-              <Messages
-                key={message.id}
-                userMessage={message.text}
-                userName={message.userName}
-              />
-            ))}
+            <MessageList messages={messages} />
           </Box>
           {/*Area for the running messages */}
           <Box>
